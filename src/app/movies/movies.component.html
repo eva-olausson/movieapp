@@ -1,0 +1,16 @@
+<app-movie-search></app-movie-search>
+
+<div id="wrapper">
+    <h1>Top Movies</h1>
+    <div class="movie-container">
+        <div *ngFor="let movie of movies" class="movie-item">
+            <img class="poster-img" src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}" />
+
+            <a [routerLink]="movie.id">
+                <h2>{{movie.title}}</h2>
+            </a>
+
+
+        </div>
+    </div>
+</div>

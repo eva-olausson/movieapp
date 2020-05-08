@@ -1,0 +1,45 @@
+<app-movie-search></app-movie-search>
+
+<div id="wrapper">
+    <div *ngIf="movie">
+        <div class="container-fluid">
+            <div class="row">
+                <h1 class="col-sm-8">{{movie.title}}</h1>
+            </div>
+            <div class="row">
+                <img class="col-sm-6" src="https://image.tmdb.org/t/p/w400/{{ movie.poster_path }}" />
+                <p class="col-sm-5">{{movie.overview}}</p>
+            </div>
+
+            <h2>Cast</h2>
+            <div class="cast-container">
+                <div class="cast" *ngFor="let actor of movie.cast">
+                    <img *ngIf="actor.profile_path" class="actor-img"
+                        src="https://image.tmdb.org/t/p/w200/{{ actor.profile_path }}" />
+                    <div class="name-box">
+                        <p class="name">{{actor.name}}</p>
+                        <p> {{actor.character}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Crew</h2>
+            <div class="cast-container">
+                <div class="crew" *ngFor="let member of movie.crew">
+                    <img *ngIf="member.profile_path" class="actor-img"
+                        src="https://image.tmdb.org/t/p/w200/{{ member.profile_path }}" />
+
+                    <div class="name-box">
+                        <p class="name">{{member.name}}</p>
+                        <p>{{member.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!movie">
+    <h1>Loading...</h1>
+</div>

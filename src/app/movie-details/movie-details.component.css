@@ -1,0 +1,83 @@
+
+#wrapper {
+    margin: auto;
+    max-width: 1200px;
+}
+
+.container-fluid {
+    font-size: 20px;
+}
+
+h1 {
+    margin: 3rem 0 3rem;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.cast-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 3rem;
+    
+}
+
+.actor-img {
+    padding: 1rem;
+    width: 100%;
+
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1px;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;    
+}
+
+a:hover {
+    color: green; 
+}
+
+ul > li {
+    text-decoration: none;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 600px) {
+  h1 {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 30px;
+    }
+   h2 {
+       margin-top: 2rem;
+    }
+   .cast-container {
+      display: flex;
+      flex-flow: column;
+      text-align: center; 
+      align-self: center;
+      margin-top: 2rem;
+    }
+  .col-sm-5 {
+     margin-top: 2rem;
+  }  
+}
+    
+    
+  
+  
