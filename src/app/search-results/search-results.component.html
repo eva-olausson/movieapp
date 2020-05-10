@@ -1,0 +1,30 @@
+<app-movie-search></app-movie-search>
+
+<div *ngIf="results">
+<p>Results for <strong>"{{searchString}}"</strong></p>
+
+    <div id="wrapper">
+        <div class="movie-container">
+
+            <!-- Movies search result -->
+
+            <div *ngFor="let result of results" class="movie-item">
+                <div *ngIf="result.media_type === 'movie'">
+                    <img *ngIf="result.poster_path" class="poster-img"
+                        src="https://image.tmdb.org/t/p/w300/{{ result.poster_path }}" />
+                    <a [routerLink]="['/movies/', result.id]">
+                        <h2>{{result.title}}</h2>
+                    </a>
+                </div>
+
+                <!-- Actor search result  -->
+
+                <div *ngIf="result.media_type === 'person'">
+                    <img *ngIf="result.profile_path" class="poster-img"
+                        src="https://image.tmdb.org/t/p/w300/{{ result.profile_path }}" />
+                    <h2>{{result.name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

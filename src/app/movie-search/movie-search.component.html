@@ -1,33 +1,9 @@
 <div class="search-bar">
-    <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">
+    <form class="form-inline my-2 my-lg-0">
         <input type="search" placeholder="Search..." name="search" [(ngModel)]="searchQuery"
-            class="form-control mr-sm-2" aria-label="Search"><button class="btn btn-outline-success my-2 my-sm-0"
-            type="submit">Search</button>
+            class="form-control mr-sm-2" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/search']" [queryParams]="{s: searchQuery}">
+            Search
+        </button>
     </form>
-</div>
-<div *ngIf="results">
-    <div id="wrapper">
-        <div class="movie-container">
-
-            <!-- Movies search result -->
-
-            <div *ngFor="let result of results" class="movie-item">
-                <div *ngIf="result.media_type === 'movie'">
-                    <img *ngIf="result.poster_path" class="poster-img"
-                        src="https://image.tmdb.org/t/p/w300/{{ result.poster_path }}" />
-                    <a [routerLink]="['/movies/', result.id]">
-                        <h2>{{result.title}}</h2>
-                    </a>
-                </div>
-
-                <!-- Actor search result  -->
-
-                <div *ngIf="result.media_type === 'person'">
-                    <img *ngIf="result.profile_path" class="poster-img"
-                        src="https://image.tmdb.org/t/p/w300/{{ result.profile_path }}" />
-                    <h2>{{result.name}}</h2>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
